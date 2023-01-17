@@ -1,30 +1,41 @@
 # first try
+from recipe import *
+from recipeManager import *
+
+recipe_manager = RecipeManager()
+
+def show_menu():
+    print("What do you wish to do?")
+    print("s) Show recipe list")
+    print("r) Show a specific recipe")
+    print("n) Add new recipe")
+    print("q) Quit")
+
+def main_loop():
+    show_menu()
+    choice = input("Selection: ").strip().lower()
+    match choice:
+        case "s": # Show recipe list
+            pass
+        case "r": # Show recipe
+            pass
+        case "n": # Add recipe
+            pass
+        case "q": # Quit
+            print("Bye!")
+            keep_going = False  # TODO Why doesn't this work to break the loop?
 
 
-class Recipe:
-    def __init__(self, title, description, ingredients, instructions):
-      self.title = title
-      self.description = description
-      self.ingredients = ingredients
-      self.instructions = instructions
-
-class RecipeManager:
-    def __init__(self):
-       pass
-
-print("Hello world")
 spags = Recipe("spago", "", "2 spags", "boil spag")
 print(spags.ingredients)
 
-
-def main_loop():
-    pass
+print("Welcome to REKO - Your recipe collection!")
 
 
 # Keep this at the bottom!
 keep_going = True
 while keep_going:
-    main_loop 
+    main_loop()
 
 """ 
 Recipe
