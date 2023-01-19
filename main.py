@@ -8,7 +8,7 @@ def add_recipe():
     print("CREATE NEW RECIPE")
     title = read_input("Title: ")
     description = input("Description (optinal): ")
-    ingredients = read_input("Ingredients :")
+    ingredients = read_input("Ingredients: ")
     instructions = read_input("Instructions: ")
     new_recipe = Recipe(title, description, ingredients, instructions)
     added = recipe_manager.add(new_recipe)
@@ -22,10 +22,15 @@ def read_input(prompt):
         user_input = input(prompt)
         if user_input.strip() != "":
             return user_input
-        print("Incorrect input. ")
+        print("Incorrect input.")
 
 def show_recipe_list():
-    print(recipe_manager)
+    print("\n--: YOUR RECIPE COLLECTION :--\n")
+    list_of_titles = recipe_manager.list_to_string()
+    if list_of_titles == "":
+        print("The recipe collection is empty!")
+    else:
+        print(list_of_titles)
     # TODO show submenu?
 
 def show_menu():
@@ -41,6 +46,7 @@ def main_loop():
     match choice:
         case "s": # Show recipe list
             show_recipe_list()
+            
         case "r": # Show recipe
             pass
         case "n": # Add recipe
@@ -52,6 +58,7 @@ def main_loop():
 
 spags = Recipe("spago", "", "2 spags", "boil spag")
 print(spags.ingredients)
+recipe_manager.add(spags)
 
 print("Welcome to REKO - Your recipe collection!")
 
